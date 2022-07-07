@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-API-KEY",
+      "description": "Some description..."
+    }
+  },
+  "paths": {
+    "/user": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "example",
+            "in": "body",
+            "description": "Exemplo de usuario",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "example": "5786586"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Lucas"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "lucasfelipe@gmail.com"
+                },
+                "adm": {
+                  "type": "boolean",
+                  "example": false
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "email",
+                "adm"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "adm": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
